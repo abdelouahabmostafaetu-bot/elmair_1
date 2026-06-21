@@ -69,15 +69,9 @@ export default function Navbar() {
           <SignedOut>
             <Link
               href="/sign-in"
-              className="text-sm font-medium text-white/85 hover:text-white hidden md:inline-flex items-center gap-1.5"
+              className="btn btn-outline !py-2 !px-5 text-sm hidden md:inline-flex items-center gap-1.5"
             >
               <LogIn size={16} /> {t("nav.signIn")}
-            </Link>
-            <Link
-              href="/sign-up"
-              className="btn btn-outline !py-2 !px-5 text-sm hidden md:inline-flex"
-            >
-              {t("nav.signUp")}
             </Link>
           </SignedOut>
           <SignedIn>
@@ -120,9 +114,6 @@ export default function Navbar() {
             <SignedOut>
               <Link href="/sign-in" className="py-2.5 mt-1 text-white/80 hover:text-white text-sm flex items-center gap-2 justify-center">
                 <LogIn size={16} /> {t("nav.signIn")}
-              </Link>
-              <Link href="/sign-up" className="py-2.5 text-white/80 hover:text-white text-sm flex items-center gap-2 justify-center">
-                {t("nav.signUp")}
               </Link>
             </SignedOut>
             <SignedIn>
