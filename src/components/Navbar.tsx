@@ -24,6 +24,7 @@ export default function Navbar() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -34,6 +35,20 @@ export default function Navbar() {
 
   useEffect(() => {
     setOpen(false)
+  }, [pathname])
+
+  // Check whether the signed-in user is an admin (controls the Dashboard link).
+  useEffect(() => {
+    let active = true
+    fetch("/api/me")
+      .then((r) => r.json())
+      .then((d) => {
+        if (active) setIsAdmin(!!d.isAdmin)
+      })
+      .catch(() => {})
+    return () => {
+      active = false
+    }
   }, [pathname])
 
   return (
@@ -81,12 +96,14 @@ export default function Navbar() {
             </Link>
           </SignedOut>
           <SignedIn>
-            <Link
-              href="/admin"
-              className="text-sm font-medium text-white/85 hover:text-white hidden md:inline-flex items-center gap-1.5"
-            >
-              <LayoutDashboard size={16} /> {t("nav.admin")}
-            </Link>
+            {isAdmin && (
+              <Link
+                href="/admin"
+                className="text-sm font-medium text-white/85 hover:text-white hidden md:inline-flex items-center gap-1.5"
+              >
+                <LayoutDashboard size={16} /> {t("nav.admin")}
+              </Link>
+            )}
             <UserButton afterSignOutUrl="/" />
           </SignedIn>
           <button
@@ -120,9 +137,11 @@ export default function Navbar() {
               </Link>
             </SignedOut>
             <SignedIn>
-              <Link href="/admin" className="py-2.5 mt-1 text-white/80 hover:text-white text-sm flex items-center gap-2 justify-center">
-                <LayoutDashboard size={16} /> {t("nav.admin")}
-              </Link>
+              {isAdmin && (
+                <Link href="/admin" className="py-2.5 mt-1 text-white/80 hover:text-white text-sm flex items-center gap-2 justify-center">
+                  <LayoutDashboard size={16} /> {t("nav.admin")}
+                </Link>
+              )}
             </SignedIn>
           </div>
         </div>
