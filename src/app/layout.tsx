@@ -39,8 +39,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <ClerkProvider
       signInUrl="/sign-in"
       signUpUrl="/sign-up"
-      signInFallbackRedirectUrl="/admin"
-      signUpFallbackRedirectUrl="/admin"
+      signInFallbackRedirectUrl="/"
+      signUpFallbackRedirectUrl="/"
     >
       <html lang="ar" dir="rtl" className={`${display.variable} ${body.variable}`}>
         <body>

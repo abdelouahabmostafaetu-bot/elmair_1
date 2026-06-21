@@ -89,9 +89,6 @@ export default function Navbar() {
             </Link>
             <UserButton afterSignOutUrl="/" />
           </SignedIn>
-          <Link href="/contact" className="btn btn-primary hidden md:inline-flex !py-2 !px-5 text-sm">
-            {t("cta.contact")}
-          </Link>
           <button
             className="lg:hidden text-white p-2"
             onClick={() => setOpen((o) => !o)}
@@ -114,9 +111,6 @@ export default function Navbar() {
                 {t(`nav.${l.key}`)}
               </Link>
             ))}
-            <Link href="/contact" className="btn btn-primary mt-3 justify-center">
-              {t("cta.contact")}
-            </Link>
             <SignedOut>
               <Link href="/sign-in" className="py-2.5 mt-1 text-white/80 hover:text-white text-sm flex items-center gap-2 justify-center">
                 <LogIn size={16} /> {t("nav.signIn")}
