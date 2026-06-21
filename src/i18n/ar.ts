@@ -13,6 +13,7 @@ export const ar = {
     events: "الفعاليات",
     contact: "تواصل معنا",
     admin: "لوحة التحكم",
+    adminLogin: "دخول الإدارة",
   },
   cta: {
     contact: "تواصل معنا",
