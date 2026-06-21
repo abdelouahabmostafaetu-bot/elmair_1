@@ -16,6 +16,8 @@ export const en: typeof ar = {
     contact: "Contact",
     admin: "Dashboard",
     adminLogin: "Admin Login",
+    signIn: "Sign In",
+    signUp: "Sign Up",
   },
   cta: {
     contact: "Contact Us",

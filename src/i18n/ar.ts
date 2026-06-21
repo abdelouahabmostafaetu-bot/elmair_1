@@ -14,6 +14,8 @@ export const ar = {
     contact: "تواصل معنا",
     admin: "لوحة التحكم",
     adminLogin: "دخول الإدارة",
+    signIn: "تسجيل الدخول",
+    signUp: "إنشاء حساب",
   },
   cta: {
     contact: "تواصل معنا",

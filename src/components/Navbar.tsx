@@ -4,7 +4,8 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import Logo from "./Logo"
 import { usePathname } from "next/navigation"
-import { Menu, X, LogIn } from "lucide-react"
+import { Menu, X, LogIn, LayoutDashboard } from "lucide-react"
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 import { useLang } from "@/i18n/LanguageContext"
 import LanguageSwitcher from "./LanguageSwitcher"
 
@@ -65,14 +66,29 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
-          <Link
-            href="/admin"
-            className="p-2 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition"
-            aria-label="Admin login"
-            title="Admin"
-          >
-            <LogIn size={18} />
-          </Link>
+          <SignedOut>
+            <Link
+              href="/sign-in"
+              className="text-sm font-medium text-white/85 hover:text-white hidden md:inline-flex items-center gap-1.5"
+            >
+              <LogIn size={16} /> {t("nav.signIn")}
+            </Link>
+            <Link
+              href="/sign-up"
+              className="btn btn-outline !py-2 !px-5 text-sm hidden md:inline-flex"
+            >
+              {t("nav.signUp")}
+            </Link>
+          </SignedOut>
+          <SignedIn>
+            <Link
+              href="/admin"
+              className="text-sm font-medium text-white/85 hover:text-white hidden md:inline-flex items-center gap-1.5"
+            >
+              <LayoutDashboard size={16} /> {t("nav.admin")}
+            </Link>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
           <Link href="/contact" className="btn btn-primary hidden md:inline-flex !py-2 !px-5 text-sm">
             {t("cta.contact")}
           </Link>
@@ -101,9 +117,19 @@ export default function Navbar() {
             <Link href="/contact" className="btn btn-primary mt-3 justify-center">
               {t("cta.contact")}
             </Link>
-            <Link href="/admin" className="py-2.5 mt-1 text-white/70 hover:text-white text-sm flex items-center gap-2 justify-center">
-              <LogIn size={16} /> {t("nav.adminLogin")}
-            </Link>
+            <SignedOut>
+              <Link href="/sign-in" className="py-2.5 mt-1 text-white/80 hover:text-white text-sm flex items-center gap-2 justify-center">
+                <LogIn size={16} /> {t("nav.signIn")}
+              </Link>
+              <Link href="/sign-up" className="py-2.5 text-white/80 hover:text-white text-sm flex items-center gap-2 justify-center">
+                {t("nav.signUp")}
+              </Link>
+            </SignedOut>
+            <SignedIn>
+              <Link href="/admin" className="py-2.5 mt-1 text-white/80 hover:text-white text-sm flex items-center gap-2 justify-center">
+                <LayoutDashboard size={16} /> {t("nav.admin")}
+              </Link>
+            </SignedIn>
           </div>
         </div>
       ) : null}
