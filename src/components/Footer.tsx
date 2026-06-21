@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
-import { Mail, MapPin, Phone, Linkedin, Facebook, Send } from "lucide-react"
+import Logo from "./Logo"
+import { Mail, MapPin, Phone, Facebook, MessageCircle, Instagram } from "lucide-react"
 import { useLang } from "@/i18n/LanguageContext"
 
 export default function Footer() {
@@ -23,14 +23,15 @@ export default function Footer() {
       <div className="container py-14 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-2 max-w-sm">
           <div className="flex items-center gap-3 mb-4">
-            <Image src="/logo.png" alt="Al-Meiyar" width={48} height={48} className="rounded-lg" />
+            <Logo size={48} />
             <span className="font-display font-bold text-white text-lg">{t("brand.full")}</span>
           </div>
           <p className="text-sm leading-relaxed text-white/65">{t("footer.about")}</p>
           <div className="flex items-center gap-3 mt-5">
-            <a href="#" className="p-2 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition" aria-label="LinkedIn"><Linkedin size={18} /></a>
-            <a href="#" className="p-2 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition" aria-label="Facebook"><Facebook size={18} /></a>
-            <a href="#" className="p-2 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition" aria-label="Telegram"><Send size={18} /></a>
+            <a href="https://www.facebook.com/share/1DAMkLBfmX/" target="_blank" rel="noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition" aria-label="Facebook"><Facebook size={18} /></a>
+            <a href="https://wa.me/213541912509" target="_blank" rel="noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition" aria-label="WhatsApp"><MessageCircle size={18} /></a>
+            <a href="https://www.instagram.com/almeiyar_center?igsh=bHp0NzcyMGY0NG5x" target="_blank" rel="noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition" aria-label="Instagram"><Instagram size={18} /></a>
+            <a href="mailto:almeiyar.crs@gmail.com" className="p-2 rounded-full bg-white/5 hover:bg-accent hover:text-navy transition" aria-label="Email"><Mail size={18} /></a>
           </div>
         </div>
 
@@ -48,9 +49,10 @@ export default function Footer() {
         <div>
           <h4 className="font-display font-semibold text-white mb-4">{t("footer.contact")}</h4>
           <ul className="space-y-3 text-sm">
-            <li className="flex items-center gap-2"><Mail size={16} className="text-accent" /> contact.almeiyar@gmail.com</li>
-            <li className="flex items-center gap-2"><Phone size={16} className="text-accent" /> +213 -- --- ---</li>
-            <li className="flex items-center gap-2"><MapPin size={16} className="text-accent" /> الجزائر · Algeria</li>
+            <li><a href="mailto:almeiyar.crs@gmail.com" className="flex items-center gap-2 hover:text-accent transition break-all"><Mail size={16} className="text-accent shrink-0" /> almeiyar.crs@gmail.com</a></li>
+            <li><a href="tel:+213541912509" className="flex items-center gap-2 hover:text-accent transition"><Phone size={16} className="text-accent shrink-0" /> 0541 91 25 09</a></li>
+            <li><a href="https://wa.me/213541912509" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-accent transition"><MessageCircle size={16} className="text-accent shrink-0" /> WhatsApp · 0541 91 25 09</a></li>
+            <li className="flex items-center gap-2"><MapPin size={16} className="text-accent shrink-0" /> الجزائر · Algeria</li>
           </ul>
         </div>
       </div>

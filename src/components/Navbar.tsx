@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
+import Logo from "./Logo"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { useLang } from "@/i18n/LanguageContext"
@@ -43,7 +43,7 @@ export default function Navbar() {
     >
       <nav className="container flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-3">
-          <Image src="/logo.png" alt="Al-Meiyar" width={44} height={44} className="rounded-lg" />
+          <Logo size={44} />
           <span className="font-display font-bold text-white text-lg leading-tight hidden sm:block">
             {t("brand.name")}
           </span>

@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Phone, MapPin } from "lucide-react"
+import { Mail, Phone, MapPin, MessageCircle, Facebook, Instagram } from "lucide-react"
 import Reveal from "@/components/Reveal"
 import ContactForm from "@/components/ContactForm"
 import { useLang } from "@/i18n/LanguageContext"
@@ -8,9 +8,12 @@ import { useLang } from "@/i18n/LanguageContext"
 export default function ContactPage() {
   const { t } = useLang()
   const info = [
-    { icon: Mail, value: "contact.almeiyar@gmail.com" },
-    { icon: Phone, value: "+213 -- --- ---" },
-    { icon: MapPin, value: "الجزائر · Algeria" },
+    { icon: Mail, value: "almeiyar.crs@gmail.com", href: "mailto:almeiyar.crs@gmail.com" },
+    { icon: Phone, value: "0541 91 25 09", href: "tel:+213541912509" },
+    { icon: MessageCircle, value: "WhatsApp · 0541 91 25 09", href: "https://wa.me/213541912509" },
+    { icon: Facebook, value: "Facebook", href: "https://www.facebook.com/share/1DAMkLBfmX/" },
+    { icon: Instagram, value: "Instagram", href: "https://www.instagram.com/almeiyar_center?igsh=bHp0NzcyMGY0NG5x" },
+    { icon: MapPin, value: "الجزائر · Algeria", href: "" },
   ]
   return (
     <>
@@ -33,7 +36,11 @@ export default function ContactPage() {
               {info.map((it) => (
                 <li key={it.value} className="flex items-center gap-3 text-ink/75">
                   <span className="w-11 h-11 rounded-2xl bg-accent/12 text-accent flex items-center justify-center shrink-0"><it.icon size={20} /></span>
-                  <span className="text-sm">{it.value}</span>
+                  {it.href ? (
+                    <a href={it.href} target="_blank" rel="noreferrer" className="text-sm hover:text-accent transition break-all">{it.value}</a>
+                  ) : (
+                    <span className="text-sm">{it.value}</span>
+                  )}
                 </li>
               ))}
             </ul>

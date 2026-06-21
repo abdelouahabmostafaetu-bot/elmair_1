@@ -36,7 +36,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      signInUrl="/sign-in"
+      signUpUrl="/sign-up"
+      afterSignInUrl="/admin"
+      afterSignUpUrl="/admin"
+    >
       <html lang="ar" dir="rtl" className={`${display.variable} ${body.variable}`}>
         <body>
           <LanguageProvider>{children}</LanguageProvider>

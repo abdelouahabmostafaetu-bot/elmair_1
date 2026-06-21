@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
+import Logo from "../Logo"
 import { usePathname } from "next/navigation"
 import { SignOutButton } from "@clerk/nextjs"
 import { LayoutDashboard, FileText, CalendarDays, MailOpen, Users, LogOut, Home } from "lucide-react"
@@ -19,7 +19,7 @@ export default function AdminSidebar({ role, email }: { role: string; email: str
   return (
     <aside className="w-60 shrink-0 bg-navy text-white min-h-screen sticky top-0 hidden md:flex flex-col">
       <div className="p-5 flex items-center gap-3 border-b border-white/10">
-        <Image src="/logo.png" alt="" width={40} height={40} className="rounded-lg" />
+        <Logo size={40} />
         <div className="leading-tight">
           <p className="font-display font-bold">مركز المعيار</p>
           <p className="text-[11px] text-white/50">لوحة الإدارة</p>
