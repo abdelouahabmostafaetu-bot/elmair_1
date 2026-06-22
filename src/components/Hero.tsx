@@ -17,7 +17,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden bg-navy">
+    <section className="relative min-h-[78vh] md:min-h-[92vh] flex items-center overflow-hidden bg-navy">
       <Image
         src="/images/hero.png"
         alt=""
@@ -32,18 +32,18 @@ export default function Hero() {
           variants={fadeContainer}
           initial="hidden"
           animate="show"
-          className="max-w-2xl pt-24"
+          className="max-w-2xl pt-20 md:pt-24"
         >
           <motion.span variants={fadeItem} className="eyebrow">
             {t("home.heroKicker")}
           </motion.span>
           <motion.h1
             variants={fadeItem}
-            className="mt-4 text-4xl md:text-6xl font-bold text-white leading-[1.25]"
+            className="mt-3 md:mt-4 text-4xl md:text-6xl font-bold text-white leading-snug md:leading-[1.25]"
           >
             {t("home.heroTitle")}
           </motion.h1>
-          <motion.p variants={fadeItem} className="mt-6 text-lg text-white/75 max-w-xl">
+          <motion.p variants={fadeItem} className="mt-4 md:mt-6 text-lg text-white/75 max-w-xl">
             {t("home.heroSubtitle")}
           </motion.p>
           <motion.div variants={fadeItem} className="mt-9 flex flex-wrap gap-4">
