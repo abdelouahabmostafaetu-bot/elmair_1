@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Mail, Phone, User, Calendar } from "lucide-react"
+import { Mail, Phone, User, Calendar, Paperclip } from "lucide-react"
 
 type Msg = {
   _id: string
@@ -11,8 +11,10 @@ type Msg = {
   profileType: string
   service: string
   companySize: string
+  organization: string
   subject: string
   message: string
+  attachments?: { name: string; type: string; size: number; data: string }[]
   createdAt: string
 }
 
@@ -47,10 +49,26 @@ export default function AdminMessages() {
                 {m.profileType ? <span className="text-xs rounded-full bg-navy/5 px-3 py-1 text-ink/70">{m.profileType}</span> : null}
                 {m.service ? <span className="text-xs rounded-full bg-accent/12 px-3 py-1 text-accent">{m.service}</span> : null}
                 {m.companySize ? <span className="text-xs rounded-full bg-navy/5 px-3 py-1 text-ink/70">{m.companySize}</span> : null}
+                {m.organization ? <span className="text-xs rounded-full bg-navy/5 px-3 py-1 text-ink/70">{m.organization}</span> : null}
               </div>
             ) : null}
             {m.subject ? <p className="mt-3 font-semibold text-navy">{m.subject}</p> : null}
             <p className="mt-2 text-ink/75 whitespace-pre-line">{m.message}</p>
+            {m.attachments && m.attachments.length > 0 ? (
+              <div className="mt-4 flex flex-wrap gap-3">
+                {m.attachments.map((a, i) =>
+                  a.type.startsWith("image/") ? (
+                    <a key={i} href={a.data} target="_blank" rel="noreferrer">
+                      <img src={a.data} alt={a.name} className="w-24 h-24 object-cover rounded-xl border border-ink/10" />
+                    </a>
+                  ) : (
+                    <a key={i} href={a.data} download={a.name} className="text-xs rounded-full bg-accent/12 px-3 py-1.5 text-accent flex items-center gap-1.5">
+                      <Paperclip size={13} /> {a.name}
+                    </a>
+                  )
+                )}
+              </div>
+            ) : null}
           </div>
         ))}
         {loaded && items.length === 0 ? <p className="text-ink/50 text-sm">لا توجد رسائل بعد.</p> : null}
