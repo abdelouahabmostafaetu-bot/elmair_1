@@ -4,12 +4,13 @@ import Link from "next/link"
 import Logo from "../Logo"
 import { usePathname } from "next/navigation"
 import { SignOutButton } from "@clerk/nextjs"
-import { LayoutDashboard, FileText, CalendarDays, MailOpen, Users, LogOut, Home } from "lucide-react"
+import { LayoutDashboard, FileText, CalendarDays, MailOpen, Users, LogOut, Home, Briefcase } from "lucide-react"
 
 const links = [
   { href: "/admin", label: "لوحة التحكم", icon: LayoutDashboard },
   { href: "/admin/blog", label: "المقالات", icon: FileText },
   { href: "/admin/events", label: "الفعاليات", icon: CalendarDays },
+  { href: "/admin/services", label: "الخدمات", icon: Briefcase },
   { href: "/admin/messages", label: "الرسائل", icon: MailOpen },
   { href: "/admin/admins", label: "المدراء", icon: Users },
 ]

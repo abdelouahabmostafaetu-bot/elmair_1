@@ -1,11 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { GraduationCap, Building2 } from "lucide-react"
 import Reveal from "@/components/Reveal"
 import ServiceAccordion from "@/components/ServiceAccordion"
-import { academicServices, corporateServices } from "@/lib/services-data"
+import { academicServices, corporateServices, type ServiceItem } from "@/lib/services-data"
 import { useLang } from "@/i18n/LanguageContext"
 
 type Sector = "academic" | "corporate"
@@ -13,7 +13,33 @@ type Sector = "academic" | "corporate"
 export default function ServicesPage() {
   const { t } = useLang()
   const [sector, setSector] = useState<Sector>("academic")
-  const list = sector === "academic" ? academicServices : corporateServices
+  // Start with the built-in defaults, then replace with admin-managed services from the DB.
+  const [academic, setAcademic] = useState<ServiceItem[]>(academicServices)
+  const [corporate, setCorporate] = useState<ServiceItem[]>(corporateServices)
+
+  useEffect(() => {
+    fetch("/api/services")
+      .then((r) => r.json())
+      .then((d) => {
+        const items: any[] = d.items || []
+        if (!items.length) return
+        const map = (s: any): ServiceItem => ({
+          id: s._id,
+          icon: s.icon,
+          titleAr: s.titleAr,
+          titleEn: s.titleEn,
+          descAr: s.descAr,
+          descEn: s.descEn,
+          pointsAr: s.pointsAr || [],
+          pointsEn: s.pointsEn || [],
+        })
+        setAcademic(items.filter((s) => s.sector === "academic").map(map))
+        setCorporate(items.filter((s) => s.sector === "corporate").map(map))
+      })
+      .catch(() => {})
+  }, [])
+
+  const list = sector === "academic" ? academic : corporate
   const cover = sector === "academic" ? "/images/academic.png" : "/images/corporate.png"
 
   return (
