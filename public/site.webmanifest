@@ -1,0 +1,16 @@
+{
+  "name": "مركز المعيار للبحوث والدراسات",
+  "short_name": "المعيار",
+  "description": "مركز جزائري متخصص في البحث العلمي والنشر الدولي وبراءات الاختراع والاستشارات المؤسسية",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    { "src": "/favicon-64.png", "sizes": "64x64", "type": "image/png", "purpose": "any" },
+    { "src": "/icon.png",       "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/logo.png",       "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
