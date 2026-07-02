@@ -11,7 +11,8 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
   const limit = Number(searchParams.get("limit")) || 0
   const upcoming = searchParams.get("upcoming") === "true"
-  const filter: Record<string, unknown> = { published: true }
+  const adminList = searchParams.get("admin") === "true" && (await isAdmin())
+  const filter: Record<string, unknown> = adminList ? {} : { published: true }
   if (upcoming) filter.startDate = { $gte: new Date() }
   let query = EventItem.find(filter).sort({ startDate: upcoming ? 1 : -1 })
   if (limit > 0) query = query.limit(limit)
