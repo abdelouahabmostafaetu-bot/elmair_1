@@ -68,7 +68,7 @@ export default function BlogDetailPage() {
         </Reveal>
         {post.coverImage ? (
           <Reveal delay={0.1} className="relative h-72 md:h-96 rounded-3xl overflow-hidden my-8">
-            <Image src={post.coverImage} alt={title} fill className="object-cover" />
+            <Image src={post.coverImage} alt={title} fill sizes="(min-width: 768px) 768px, 100vw" className="object-cover" />
           </Reveal>
         ) : null}
         <Reveal delay={0.15} className="prose-rich text-ink/80 whitespace-pre-line mt-8">

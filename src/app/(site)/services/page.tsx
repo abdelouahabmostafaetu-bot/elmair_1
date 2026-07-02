@@ -86,7 +86,7 @@ export default function ServicesPage() {
             </div>
           </div>
           <Reveal delay={0.1} className="relative h-96 rounded-3xl overflow-hidden sticky top-28 hidden lg:block">
-            <Image src={cover} alt="" fill className="object-cover" />
+            <Image src={cover} alt="" fill sizes="360px" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
           </Reveal>
         </div>

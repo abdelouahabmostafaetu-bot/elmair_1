@@ -30,7 +30,7 @@ html {
 body {
   background-color: #FAF8F3;
   color: #1A2230;
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-body), "Noto Kufi Arabic", "Segoe UI", Tahoma, Arial, system-ui, sans-serif;
   line-height: 1.85;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -38,8 +38,17 @@ body {
 }
 
 h1, h2, h3, h4, .font-display {
-  font-family: var(--font-display), serif;
+  font-family: var(--font-display), "Noto Kufi Arabic", "Segoe UI", Tahoma, Arial, serif;
   line-height: 1.4;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+[class~="rounded-3xl"][class~="bg-white"],
+[class~="rounded-2xl"][class~="bg-white"] {
+  min-height: 3.5rem;
 }
 
 /* Accent helpers driven by the active sector */
