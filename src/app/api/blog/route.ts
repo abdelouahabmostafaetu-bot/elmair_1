@@ -11,7 +11,8 @@ export async function GET(req: Request) {
   await connectDB()
   const { searchParams } = new URL(req.url)
   const limit = Number(searchParams.get("limit")) || 0
-  let query = BlogPost.find({ published: true }).sort({ createdAt: -1 })
+  const adminList = searchParams.get("admin") === "true" && (await isAdmin())
+  let query = BlogPost.find(adminList ? {} : { published: true }).sort({ createdAt: -1 })
   if (limit > 0) query = query.limit(limit)
   const items = await query.lean()
   return NextResponse.json({ items })

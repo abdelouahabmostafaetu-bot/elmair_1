@@ -1,7 +1,7 @@
 import mongoose, { Schema, models, model } from "mongoose"
 
-// Contact form submissions. These are NEVER deleted by the app —
-// the admin can only read them.
+// Contact form submissions. Admins can mark them handled or delete them from
+// the dashboard after review.
 const MessageSchema = new Schema(
   {
     name: { type: String, required: true, trim: true },

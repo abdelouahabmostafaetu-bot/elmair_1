@@ -7,6 +7,18 @@ export const dynamic = "force-dynamic"
 
 type Params = { params: { id: string } }
 
+// Public: read one service.
+export async function GET(_req: Request, { params }: Params) {
+  await connectDB()
+  try {
+    const item = await Service.findById(params.id).lean()
+    if (!item) return NextResponse.json({ error: "not found" }, { status: 404 })
+    return NextResponse.json({ item })
+  } catch {
+    return NextResponse.json({ error: "not found" }, { status: 404 })
+  }
+}
+
 // Admin only: update a service.
 export async function PUT(req: Request, { params }: Params) {
   if (!(await isAdmin())) return NextResponse.json({ error: "unauthorized" }, { status: 401 })

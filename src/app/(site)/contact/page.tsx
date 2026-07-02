@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Phone, MapPin, MessageCircle, Facebook, Instagram } from "lucide-react"
+import { Facebook, Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
 import Reveal from "@/components/Reveal"
 import ContactForm from "@/components/ContactForm"
 import { useLang } from "@/i18n/LanguageContext"
@@ -15,6 +15,8 @@ export default function ContactPage() {
     { icon: Instagram, value: "Instagram", href: "https://www.instagram.com/almeiyar_center?igsh=bHp0NzcyMGY0NG5x" },
     { icon: MapPin, value: "الجزائر · Algeria", href: "" },
   ]
+  const isLtrContact = (value: string) => value.includes("@") || /\d/.test(value)
+
   return (
     <>
       <section className="pt-36 pb-14 bg-navy text-white">
@@ -37,9 +39,11 @@ export default function ContactPage() {
                 <li key={it.value} className="flex items-center gap-3 text-ink/75">
                   <span className="w-11 h-11 rounded-2xl bg-accent/12 text-accent flex items-center justify-center shrink-0"><it.icon size={20} /></span>
                   {it.href ? (
-                    <a href={it.href} target="_blank" rel="noreferrer" className="text-sm hover:text-accent transition break-all">{it.value}</a>
+                    <a href={it.href} target="_blank" rel="noreferrer" className="text-sm hover:text-accent transition break-all">
+                      <span dir={isLtrContact(it.value) ? "ltr" : undefined}>{it.value}</span>
+                    </a>
                   ) : (
-                    <span className="text-sm">{it.value}</span>
+                    <span className="text-sm" dir={isLtrContact(it.value) ? "ltr" : undefined}>{it.value}</span>
                   )}
                 </li>
               ))}

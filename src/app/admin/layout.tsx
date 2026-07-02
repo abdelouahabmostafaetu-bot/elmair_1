@@ -43,7 +43,7 @@ export default async function AdminLayout({
   return (
     <div className="min-h-screen flex bg-cream" dir="rtl">
       <AdminSidebar role={me.role} email={me.email} />
-      <main className="flex-1 p-5 md:p-10 overflow-x-hidden">{children}</main>
+      <main className="flex-1 overflow-x-hidden p-5 pt-24 md:p-10">{children}</main>
     </div>
   );
 }

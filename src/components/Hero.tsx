@@ -23,6 +23,7 @@ export default function Hero() {
         alt=""
         fill
         priority
+        sizes="100vw"
         className="object-cover object-center opacity-90"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/30" />

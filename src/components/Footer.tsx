@@ -102,7 +102,7 @@ export default function Footer() {
                 className="flex items-center gap-2 hover:text-accent transition break-all"
               >
                 <Mail size={16} className="text-accent shrink-0" />{" "}
-                almeiyar.crs@gmail.com
+                <span dir="ltr">almeiyar.crs@gmail.com</span>
               </a>
             </li>
             <li>
@@ -110,8 +110,7 @@ export default function Footer() {
                 href="tel:+213541912509"
                 className="flex items-center gap-2 hover:text-accent transition"
               >
-                <Phone size={16} className="text-accent shrink-0" /> 0541 91 25
-                09
+                <Phone size={16} className="text-accent shrink-0" /> <span dir="ltr">0541 91 25 09</span>
               </a>
             </li>
             <li>
@@ -122,7 +121,7 @@ export default function Footer() {
                 className="flex items-center gap-2 hover:text-accent transition"
               >
                 <MessageCircle size={16} className="text-accent shrink-0" />{" "}
-                WhatsApp · 0541 91 25 09
+                WhatsApp · <span dir="ltr">0541 91 25 09</span>
               </a>
             </li>
             <li className="flex items-center gap-2">

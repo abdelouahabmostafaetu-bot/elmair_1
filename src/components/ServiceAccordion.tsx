@@ -8,7 +8,7 @@ import type { ServiceItem } from "@/lib/services-data"
 import { useLang } from "@/i18n/LanguageContext"
 
 function DynIcon({ name, size = 24 }: { name: string; size?: number }) {
-  const Cmp = (Icons as Record<string, React.ComponentType<{ size?: number }>>)[name] || Icons.Sparkles
+  const Cmp = (Icons as unknown as Record<string, React.ComponentType<{ size?: number }>>)[name] || Icons.Sparkles
   return <Cmp size={size} />
 }
 

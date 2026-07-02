@@ -30,7 +30,7 @@ export default function AboutPage() {
       <section className="section">
         <div className="container grid md:grid-cols-2 gap-12 items-center">
           <Reveal className="relative h-96 rounded-3xl overflow-hidden">
-            <Image src="/images/about.png" alt="" fill className="object-cover" />
+            <Image src="/images/about.png" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </Reveal>
           <Reveal delay={0.12}>
             <p className="text-lg text-ink/75">{t("about.p1")}</p>

@@ -169,4 +169,4 @@ export const ar = {
     noAccessTitle: "لا تملك صلاحية الدخول",
     noAccessText: "هذا الحساب غير مصرّح له بالدخول إلى لوحة الإدارة.",
   },
-} as const
+}

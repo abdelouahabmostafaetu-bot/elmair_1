@@ -70,7 +70,7 @@ export default function PortfolioPage() {
                     className="group overflow-hidden rounded-3xl bg-white shadow-sm"
                   >
                     <div className="relative h-52">
-                      <Image src={p.image} alt={title} fill className="object-cover transition duration-700 group-hover:scale-105" />
+                      <Image src={p.image} alt={title} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
                     </div>
                     <div className="p-6">
                       <h3 className="font-display font-semibold text-navy leading-snug">{title}</h3>

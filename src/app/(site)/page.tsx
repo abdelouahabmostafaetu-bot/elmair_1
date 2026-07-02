@@ -9,6 +9,7 @@ import Reveal from "@/components/Reveal"
 import SectionHeading from "@/components/SectionHeading"
 import BlogCard, { type BlogCardData } from "@/components/cards/BlogCard"
 import EventCard, { type EventCardData } from "@/components/cards/EventCard"
+import QuoteOfTheDay from "@/components/QuoteOfTheDay"
 import { useLang } from "@/i18n/LanguageContext"
 
 export default function HomePage() {
@@ -47,7 +48,7 @@ export default function HomePage() {
             </Link>
           </Reveal>
           <Reveal delay={0.15} className="relative h-80 rounded-3xl overflow-hidden">
-            <Image src="/images/about.png" alt="" fill className="object-cover" />
+            <Image src="/images/about.png" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </Reveal>
         </div>
       </section>
@@ -59,7 +60,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-6">
             <Reveal>
               <Link href="/services" className="group block relative overflow-hidden rounded-3xl h-72">
-                <Image src="/images/academic.png" alt="" fill className="object-cover transition duration-700 group-hover:scale-105" />
+                <Image src="/images/academic.png" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-navy/40 to-transparent" />
                 <div className="absolute bottom-0 p-7">
                   <GraduationCap className="text-gold mb-3" size={32} />
@@ -70,7 +71,7 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.12}>
               <Link href="/services" className="group block relative overflow-hidden rounded-3xl h-72">
-                <Image src="/images/corporate.png" alt="" fill className="object-cover transition duration-700 group-hover:scale-105" />
+                <Image src="/images/corporate.png" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent" />
                 <div className="absolute bottom-0 p-7">
                   <Building2 className="text-brand-light mb-3" size={32} />
@@ -100,6 +101,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <QuoteOfTheDay />
 
       {/* Latest blog */}
       {posts.length > 0 ? (
@@ -139,7 +142,7 @@ export default function HomePage() {
 
       {/* CTA */}
       <section className="relative section overflow-hidden">
-        <Image src="/images/cta.png" alt="" fill className="object-cover" />
+        <Image src="/images/cta.png" alt="" fill sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-navy/80" />
         <div className="container relative z-10 text-center max-w-2xl">
           <Reveal>
